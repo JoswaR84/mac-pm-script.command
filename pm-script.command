@@ -9,7 +9,7 @@ echo
 echo "Please enter the asset tag ID"
 read assetID
 echo
-sudo scutil --set ComputerName $username-$assetID
+sudo scutil --set ComputerName $assetID-$username
 compname=$(sudo scutil --get ComputerName)
 echo "Computer is now named:" $compname
 
