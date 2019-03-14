@@ -9,7 +9,6 @@ open "x-apple.systempreferences:"
 echo
 
 
-
 ### Set ComputerName ###
 
 echo
@@ -54,7 +53,6 @@ then
     echo "Not Installed or not Running!"
 fi
 echo
-
 
 
 ### Update & Disable Auto Update ###
