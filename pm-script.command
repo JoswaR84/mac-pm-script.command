@@ -1,13 +1,22 @@
 #!/bin/bash
 
-### Set ComputerName &  ###
+
+### Check Username is Set ###
 
 echo
-echo "Please enter the users name, WITH NO SPACES!"
-read username
+echo "MAKE SURE USERNAME IS CORRECT!"
+echo
+
+
+
+### Set ComputerName ###
+
 echo
 echo "Please enter the asset tag ID"
 read assetID
+echo
+echo "Please enter the users name, WITH NO SPACES!"
+read username
 echo
 sudo scutil --set ComputerName $assetID-$username
 compname=$(sudo scutil --get ComputerName)
@@ -45,11 +54,3 @@ softwareupdate -d -i -a -R
 echo
 echo "Disabling Auto Updates"
 sudo softwareupdate --schedule off
-
-
-
-### Check Username is Set ###
-
-echo
-echo "MAKE SURE USERNAME IS CORRECT!"
-echo
