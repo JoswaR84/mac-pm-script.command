@@ -5,6 +5,7 @@
 
 echo
 echo "MAKE SURE USERNAME IS CORRECT!"
+open "x-apple.systempreferences:"
 echo
 
 
@@ -12,16 +13,24 @@ echo
 ### Set ComputerName ###
 
 echo
-echo "Please enter the asset tag ID"
-read assetID
-echo
-echo "Please enter the users name, WITH NO SPACES!"
-read username
-echo
-sudo scutil --set ComputerName $assetID-$username
 compname=$(sudo scutil --get ComputerName)
-echo "Computer is now named:" $compname
-
+echo "Computer is named:" $compname
+echo
+echo "Do you wish to change the computer name? (y/n)"
+read yn
+if [ $yn = 'y' ]; then 
+    echo "Please enter the asset tag ID"
+    read assetID
+    echo
+    echo "Please enter the users name, WITH NO SPACES!"
+    read username
+    echo
+    sudo scutil --set ComputerName $assetID-$username
+    echo "Computer is named:" $compname
+else
+    echo
+    echo "Computer renaming skipped..."
+fi
 
 
 ### Run Applications ###
@@ -54,3 +63,4 @@ softwareupdate -d -i -a -R
 echo
 echo "Disabling Auto Updates"
 sudo softwareupdate --schedule off
+echo
